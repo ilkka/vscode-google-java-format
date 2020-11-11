@@ -3,7 +3,7 @@
   "displayName": "google-java-format",
   "description": "Yet another simple google-java-format runner",
   "publisher": "ilkka",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "keywords": [
     "Java"
   ],

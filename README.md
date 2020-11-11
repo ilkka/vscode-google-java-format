@@ -1,65 +1,31 @@
-# google-java-format README
+# google-java-format
 
-This is the README for your extension "google-java-format". After writing up a brief description, we recommend including the following sections.
+This is yet another VS Code extension for running the google-java-format tool as a Java formatter. I could not make any of the others work for me, and I did not want to install an extension that will just run commands from random repositories on save. So, I wrote this, a super simple formatter provider that will just run the google-java-format script from e.g. Homebrew.
+
+It should work as a formatter for only sections of files as well.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+It provides a formatter for the Java language, meaning it runs google-java-format for you.
 
-For example if there is an image subfolder under your extension project workspace:
+Install google-java-format from e.g. Homebrew and set it as your Java formatter like:
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```json
+"[java]": {
+  "editor.defaultFormatter": "ilkka.google-java-format",
+}
+```
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Use the setting "google-java-format.executable-path" to set the path to the google-java-format executable. The extension does not look in `$PATH` right now.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Nothing right now.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release.
