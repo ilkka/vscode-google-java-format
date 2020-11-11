@@ -4,6 +4,10 @@
   "description": "Yet another simple google-java-format runner",
   "publisher": "ilkka",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilkka/vscode-google-java-format"
+  },
   "keywords": [
     "Java"
   ],
