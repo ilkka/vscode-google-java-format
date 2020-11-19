@@ -42,13 +42,17 @@ class GoogleJavaFormatProvider
       return Promise.resolve(null);
     }
 
+    outputChannel.appendLine(
+      `Formatting ${document.fileName} from ${range.start.line} to ${range.end.line}`
+    );
+
     return new Promise((resolve, reject) => {
       let stdout = "";
       let stderr = "";
       let child = cp.spawn(executablePath, [
         "--lines",
         `${range.start.line}:${range.end.line}`,
-        document.fileName,
+        "-",
       ]);
       child.stdout.on("data", (chunk) => (stdout += chunk));
       child.stderr.on("data", (chunk) => (stderr += chunk));
@@ -61,7 +65,6 @@ class GoogleJavaFormatProvider
       child.on("close", (retcode) => {
         if (stderr.length > 0) {
           outputChannel.show();
-          outputChannel.clear();
           outputChannel.appendLine(stderr);
           return reject("Failed to format file");
         }
@@ -76,6 +79,13 @@ class GoogleJavaFormatProvider
             stdout
           ),
         ]);
+      });
+      child.stdin.write(document.getText(), (err) => {
+        if (err) {
+          outputChannel.show();
+          outputChannel.appendLine(err.message);
+        }
+        child.stdin.end();
       });
     });
   }
