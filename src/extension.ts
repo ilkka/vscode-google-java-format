@@ -64,7 +64,6 @@ class GoogleJavaFormatProvider
       });
       child.on("close", (retcode) => {
         if (stderr.length > 0) {
-          outputChannel.show();
           outputChannel.appendLine(stderr);
           return reject("Failed to format file");
         }
@@ -82,7 +81,6 @@ class GoogleJavaFormatProvider
       });
       child.stdin.write(document.getText(), (err) => {
         if (err) {
-          outputChannel.show();
           outputChannel.appendLine(err.message);
         }
         child.stdin.end();
