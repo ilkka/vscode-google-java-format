@@ -26,6 +26,10 @@ Nothing right now.
 
 ## Release Notes
 
+### 1.0.1
+
+Bugfix release to address disappearing changes.
+
 ### 1.0.0
 
 Initial release.
