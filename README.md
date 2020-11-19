@@ -26,6 +26,10 @@ Nothing right now.
 
 ## Release Notes
 
+### 1.0.2
+
+Stop output window always popping up.
+
 ### 1.0.1
 
 Bugfix release to address disappearing changes.
