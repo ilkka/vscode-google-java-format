@@ -20,6 +20,8 @@ Install google-java-format from e.g. Homebrew and set it as your Java formatter 
 
 Use the setting "google-java-format.executable-path" to set the path to the google-java-format executable. The extension does not look in `$PATH` right now.
 
+Use the setting "google-java-format.args" to pass an array of args to the `google-java-format` script.
+
 ## Known Issues
 
 Nothing right now.
