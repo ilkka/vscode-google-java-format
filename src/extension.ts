@@ -51,6 +51,7 @@ class GoogleJavaFormatProvider
     const configFormatterArgs = vscode.workspace
       .getConfiguration("google-java-format")
       .get<string[]>("args");
+
     if (configFormatterArgs === undefined) {
       vscode.window.showErrorMessage(
         "google-java-format.args not defined"
