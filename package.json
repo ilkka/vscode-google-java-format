@@ -29,6 +29,17 @@
           "type": "string",
           "default": "/usr/local/bin/google-java-format",
           "description": "Path to google-java-format script"
+        },
+        "google-java-format.args": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Arguments to pass to the google-java-format script"
         }
       }
     }
