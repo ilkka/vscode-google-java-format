@@ -42,6 +42,25 @@ class GoogleJavaFormatProvider
       return Promise.resolve(null);
     }
 
+    const defaultFormatterArgs = [
+      "--lines",
+      `${range.start.line}:${range.end.line}`,
+      "-",
+    ];
+
+    const configFormatterArgs = vscode.workspace
+      .getConfiguration("google-java-format")
+      .get<string[]>("args");
+
+    if (configFormatterArgs === undefined) {
+      vscode.window.showErrorMessage(
+        "google-java-format.args not defined"
+      );
+      return Promise.resolve(null);
+    }
+
+    const formatterArgs = configFormatterArgs.concat(defaultFormatterArgs);
+
     outputChannel.appendLine(
       `Formatting ${document.fileName} from ${range.start.line} to ${range.end.line}`
     );
@@ -49,11 +68,7 @@ class GoogleJavaFormatProvider
     return new Promise((resolve, reject) => {
       let stdout = "";
       let stderr = "";
-      let child = cp.spawn(executablePath, [
-        "--lines",
-        `${range.start.line}:${range.end.line}`,
-        "-",
-      ]);
+      let child = cp.spawn(executablePath, formatterArgs);
       child.stdout.on("data", (chunk) => (stdout += chunk));
       child.stderr.on("data", (chunk) => (stderr += chunk));
       child.on("error", (err) => {
